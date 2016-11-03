@@ -1,0 +1,23 @@
+/* 统一浏览器默认样式 */
+body {margin:0; padding:0; font:12px "\5B8B\4F53",san-serif;background:#fff;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;}   
+table,td,tr,th{font-size:12px;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+ol,ul {list-style:none;}
+h1,h2,h3,h4,h5,h6 {font-size:12px; font-weight:normal;}
+address,cite,code,em,th {font-weight:normal; font-style:normal;}
+.fB{font-weight:bold;}
+.f12px{font-size:12px;}
+.f14px{font-size:14px;}
+.left{float:left;}
+.right{float:right;}
+
+a {color:#2b2b2b; text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {color:#ba2636;text-decoration:underline;}
+a:active {color:#ba2636;}
+
+
+
+/* carousel */
