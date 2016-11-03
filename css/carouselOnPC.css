@@ -21,3 +21,13 @@ a:active {color:#ba2636;}
 
 
 /* carousel */
+.carousel{
+	overflow: hidden;
+	margin:0 auto;
+}
+.carousel .carousel-list{
+	width:100000px;
+}
+.carousel .carousel-list .carousel-item{
+	float: left;
+}
