@@ -24,10 +24,40 @@ a:active {color:#ba2636;}
 .carousel{
 	overflow: hidden;
 	margin:0 auto;
+	width: 520px;
+	position: relative;
 }
 .carousel .carousel-list{
 	width:100000px;
 }
+.carousel .carousel-list::after{
+	content:".";
+	clear:both;
+	height: 0;
+	display: block;
+	visibility: hidden;
+}
 .carousel .carousel-list .carousel-item{
 	float: left;
+	width:520px;
+}
+.carousel .btn-container{
+	position: absolute;
+	width:100%;
+	top:50%;
+	margin-top: -25px;
+	height: 50px;
+}
+.carousel .btn-container .carousel-btn{
+	width:30px;
+	height: 50px;
+	background: url(../images/left-right.png) no-repeat;
+	background-color:#000;
+	opacity: 0.3;
+}
+.carousel .btn-container .carousel-btn.prev-btn{
+	background-position: center left;
+}
+.carousel .btn-container .carousel-btn.next-btn{
+	background-position: center right;
 }

@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<title>carouselOnPC</title>
 	<link rel="stylesheet" type="text/css" href="css/carouselOnPC.css">
-	<script type="text/javascript" script="js/carouselOnPC.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="js/carouselOnPC.js"></script>
 </head>
 <body>
 	<div id="carousel" class="carousel" data-setting='{
@@ -20,6 +21,13 @@
 			<li class="carousel-item"><img src="images/img-04.jpg" alt="轮播图片4"></li>
 			<li class="carousel-item"><img src="images/img-05.jpg" alt="轮播图片5"></li>
 		</ul>
+		<div class="btn-container">
+			<div class="carousel-btn left prev-btn"></div>
+			<div class="carousel-btn right next-btn"></div>
+		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	$("#carousel").carouselOnPC();
+</script>
 </html>
