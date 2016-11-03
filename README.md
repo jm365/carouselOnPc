@@ -1,6 +1,8 @@
-# carouselOnPc
-基于jQuery的PC端轮播插件
-在网页加的内容
-# 在电脑上加的内容
-1、在@电脑上加的内容<br>
-2、在<h1>网页又加了内容</h1>
+<h1>carouselOnPC</h1>
+<p>描述：简述内容</p>
+<code><p>代码</p></code>
+<ul>
+	<li>列表内容</li>
+	<li>列表内容</li>
+	<li>列表内容</li>
+</ul>
