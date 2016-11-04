@@ -1,13 +1,29 @@
 ;(function($){
-	var timer;
+	var timer,
+		setting;
+
+	function carousel(obj){
+
+	}
 	function autoPlay(){
 		console.log(2);
 	};
+	var a=1;
+
 
 	$.fn.extend({
-		carouselOnPC:function(){
-			console.log(1);
-			// timer=setInterval()
-		}
+		carouselOnPC:carousel
 	});
 })(jQuery);
+
+
+
+window.onload=function(){
+	function a(p){
+		console.log(p);
+	}
+	a.b=function(){
+		console.log(this);
+	}
+	a.b();
+}
