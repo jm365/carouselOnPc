@@ -29,6 +29,7 @@ a:active {color:#ba2636;}
 }
 .carousel .carousel-list{
 	width:100000px;
+	position: relative;
 }
 .carousel .carousel-list::after{
 	content:".";
@@ -40,6 +41,10 @@ a:active {color:#ba2636;}
 .carousel .carousel-list .carousel-item{
 	float: left;
 	width:520px;
+}
+.carousel .carousel-list .carousel-item img{
+	display: block;
+	width:100%;
 }
 .carousel .btn-container{
 	position: absolute;

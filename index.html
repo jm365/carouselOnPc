@@ -8,11 +8,11 @@
 	<script type="text/javascript" src="js/carouselOnPC.js"></script>
 </head>
 <body>
-	<div id="carousel" class="carousel" data-setting='{
+	<div class="carousel" data-setting='{
 		"width":520,
 		"speed":300,
 		"autoPlay":false,
-		"delay":3000
+		"delay":4000
 	}'>
 		<ul class="carousel-list">
 			<li class="carousel-item"><img src="images/img-01.jpg" alt="轮播图片1"></li>
@@ -23,26 +23,26 @@
 		</ul>
 		<div class="btn-container">
 			<a href="javascript:void(0)">
-			<div class="carousel-btn left prev-btn">
-				<div class="bg"></div>
-				<div class="btn-img"></div>
-			</div>
+				<div class="carousel-btn left prev-btn">
+					<div class="bg"></div>
+					<div class="btn-img"></div>
+				</div>
 			</a>
 			<a href="javascript:void(0)">
-			<div class="carousel-btn right next-btn">
-				<div class="bg"></div>
-				<div class="btn-img"></div>
-			</div>
+				<div class="carousel-btn right next-btn">
+					<div class="bg"></div>
+					<div class="btn-img"></div>
+				</div>
 			</a>
 		</div>
 		<div class="bottom-btn-container">
 			<div class="bottom-btn-inner">
 				<ul class="bottom-btn-list">
-					<a href="javascript:void(0)"><li class="bottom-btn-item"></li></a>
-					<a href="javascript:void(0)"><li class="bottom-btn-item selected"></li></a>
-					<a href="javascript:void(0)"><li class="bottom-btn-item"></li></a>
-					<a href="javascript:void(0)"><li class="bottom-btn-item"></li></a>
-					<a href="javascript:void(0)"><li class="bottom-btn-item"></li></a>
+					<a href="javascript:void(0)"><li class="bottom-btn-item" data-number="1"></li></a>
+					<a href="javascript:void(0)"><li class="bottom-btn-item selected"  data-number="2"></li></a>
+					<a href="javascript:void(0)"><li class="bottom-btn-item" data-number="3"></li></a>
+					<a href="javascript:void(0)"><li class="bottom-btn-item" data-number="4"></li></a>
+					<a href="javascript:void(0)"><li class="bottom-btn-item" data-number="5"></li></a>
 				</ul>
 				<div class="bg"></div>
 			</div>
@@ -50,7 +50,6 @@
 	</div>
 </body>
 <script type="text/javascript">
-	$("#carousel").carouselOnPC();
-
+	$(".carousel").carouselOnPc();
 </script>
 </html>
