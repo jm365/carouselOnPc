@@ -24,6 +24,7 @@
 		this.carousel=$(obj);
 		this.carouselBottomBtns=$(obj).find(".bottom-btn-item");
 		this.isCarousel=true;
+		this.currentPage=1;
 
 		// 设置DOM样式
 		this.setSize();
@@ -31,9 +32,25 @@
 		// 点击左右按钮切换轮播图
 		this.nextBtn.on("click",function(){
 			self.turnPage("next");
+			if(self.currentPage<self.carouselItems.length-2){
+				self.currentPage+=1;
+			}
+			else{
+				self.currentPage=1;
+			}
+			self.carouselBottomBtns.removeClass("selected");
+			self.carousel.find(".bottom-btn-item[data-number='"+self.currentPage+"']").addClass("selected");
 		});
 		this.prevBtn.on("click",function(){
 			self.turnPage("prev");
+			if(self.currentPage>1){
+				self.currentPage-=1;
+			}
+			else{
+				self.currentPage=self.carouselItems.length-2;
+			}
+			self.carouselBottomBtns.removeClass("selected");
+			self.carousel.find(".bottom-btn-item[data-number='"+self.currentPage+"']").addClass("selected");
 		});
 
 		// 点击圆点切换轮播图
@@ -49,10 +66,10 @@
 
 		// 点击圆点切换轮播图
 		toPage:function(obj){
+			var self=this;
 			this.carouselBottomBtns.removeClass("selected");
 			$(obj).addClass("selected");
-			console.log(parseInt($(obj).attr("data-number")));
-			// this.carouselList.animate();
+			this.carouselList.animate({left:-self.setting.width*parseInt($(obj).attr("data-number"))});
 		},
 
 		// 点击左右按钮切换轮播

@@ -68,10 +68,12 @@ a:active {color:#ba2636;}
 	background: #000;	
 	position:absolute;
 	opacity: 0.3;
+	filter:alpha(opacity=30);
 	z-index: 0;
 }
 .carousel .btn-container .carousel-btn:hover .bg{
 	opacity: 0.6;
+	filter:alpha(opacity=60);
 }
 .carousel .btn-container .carousel-btn .btn-img{
 	width:100%;
@@ -104,6 +106,7 @@ a:active {color:#ba2636;}
 	height: 100%;
 	background: #fff;
 	opacity: 0.3;
+	filter:alpha(opacity=30);
 	margin-left: -50%;
 	z-index: 0;
 }
