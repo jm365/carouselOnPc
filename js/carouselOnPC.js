@@ -57,11 +57,34 @@
 		this.carouselBottomBtns.on("click",function(){
 			self.toPage(this);
 		});
+
+		// 自动轮播
+		this.timer=setInterval(function(){
+			self.autoPlay()
+		},self.setting.delay);
+
+		// 鼠标放入停止自动轮播，鼠标移开开始自动轮播
+		this.carousel.hover(function(){
+			clearInterval(self.timer);
+		},function(){
+			self.timer=setInterval(function(){
+				self.autoPlay()
+			},self.setting.delay);
+		});
 	};
 	carousel.prototype={
 		// 自动轮播
 		autoPlay:function(){
-			console.log(1);
+			var self=this;
+			if(this.currentPage<this.carouselItems.length-2){
+				this.currentPage+=1;
+			}
+			else{
+				this.currentPage=1;
+			}
+			this.carouselList.animate({left:-self.setting.width*self.currentPage});
+			self.carouselBottomBtns.removeClass("selected");
+			self.carousel.find(".bottom-btn-item[data-number='"+self.currentPage+"']").addClass("selected");
 		},
 
 		// 点击圆点切换轮播图
