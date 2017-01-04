@@ -17,21 +17,24 @@
 		$(obj).find(".carousel-list").prepend($(obj).find(".carousel-item").last().clone());	
 		$(obj).find(".carousel-list").append($(obj).find(".carousel-item").eq(1).clone());
 
-		this.nextBtn=$(obj).find(".next-btn");
-		this.prevBtn=$(obj).find(".prev-btn");
+		this.nextBtn=$(obj).find(".next-btn");// 上一页按钮
+		this.prevBtn=$(obj).find(".prev-btn");// 下一页按钮
 		this.carouselList=$(obj).find(".carousel-list");
 		this.carouselItems=$(obj).find(".carousel-item");
 		this.carousel=$(obj);
 		this.carouselBottomBtns=$(obj).find(".bottom-btn-item");
-		this.isCarousel=true;
-		this.currentPage=1;
+		this.isCarousel=true;// 是否正在轮播
+		this.currentPage=1;// 当前页码
 
 		// 设置DOM样式
 		this.setSize();
 
 		// 点击左右按钮切换轮播图
 		this.nextBtn.on("click",function(){
+			// 切换至下一页
 			self.turnPage("next");
+
+			
 			if(self.currentPage<self.carouselItems.length-2){
 				self.currentPage+=1;
 			}
@@ -99,7 +102,7 @@
 		turnPage:function(direction){
 			var self=this;
 			if(this.isCarousel){
-				this.isCarousel=false;
+				// this.isCarousel=false;
 				if(direction=="next"){
 					// 如果是最后一张
 					if(this.carouselList.css("left")==-this.setting.width*(this.carouselItems.length-1)+"px"){
