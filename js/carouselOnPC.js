@@ -23,8 +23,8 @@
 		this.carouselItems=$(obj).find(".carousel-item");
 		this.carousel=$(obj);
 		this.carouselBottomBtns=$(obj).find(".bottom-btn-item");
-		this.isCarousel=true;// 是否正在轮播
 		this.currentPage=1;// 当前页码
+		this.currentOffset=-this.setting.width;//当前偏移值
 
 		// 设置DOM样式
 		this.setSize();
@@ -34,24 +34,35 @@
 			// 切换至下一页
 			self.turnPage("next");
 
-			
+			// 如果没到最后一页
 			if(self.currentPage<self.carouselItems.length-2){
 				self.currentPage+=1;
 			}
+
+			// 如果是最后一页
 			else{
 				self.currentPage=1;
 			}
+
+			// 显示对应底部导航点
 			self.carouselBottomBtns.removeClass("selected");
 			self.carousel.find(".bottom-btn-item[data-number='"+self.currentPage+"']").addClass("selected");
 		});
 		this.prevBtn.on("click",function(){
+			// 切换至上一页
 			self.turnPage("prev");
+
+			// 如果当前不是第一页
 			if(self.currentPage>1){
 				self.currentPage-=1;
 			}
+
+			// 如果当前为第一页
 			else{
 				self.currentPage=self.carouselItems.length-2;
 			}
+
+			// 显示对应底部导航点
 			self.carouselBottomBtns.removeClass("selected");
 			self.carousel.find(".bottom-btn-item[data-number='"+self.currentPage+"']").addClass("selected");
 		});
@@ -95,42 +106,49 @@
 			var self=this;
 			this.carouselBottomBtns.removeClass("selected");
 			$(obj).addClass("selected");
-			this.carouselList.animate({left:-self.setting.width*parseInt($(obj).attr("data-number"))});
+			this.carouselList.animate({left:-self.setting.width*parseInt($(obj).attr("data-number"))},this.setting.speed);
 		},
 
 		// 点击左右按钮切换轮播
 		turnPage:function(direction){
 			var self=this;
-			if(this.isCarousel){
-				// this.isCarousel=false;
-				if(direction=="next"){
-					// 如果是最后一张
-					if(this.carouselList.css("left")==-this.setting.width*(this.carouselItems.length-1)+"px"){
-						this.carouselList.css("left",-this.setting.width);
-					}
 
-					// 如果是第一张
-					else if(this.carouselList.css("left")=="0px"){
-						this.carouselList.css("left",-this.setting.width*(this.carouselItems.length-2)+"px");
-					};
-					this.carouselList.animate({left:-parseInt(this.carouselList.css("left").substring(1,this.carouselList.css("left").length-2))-this.setting.width+"px"},this.setting.speed,function(){
-						self.isCarousel=true;
-					});
+			// 停止当前动画
+			this.carouselList.stop();
+			
+			if(direction=="next"){
+				// 如果是最后一张
+				if(this.currentOffset==-this.setting.width*(this.carouselItems.length-1)){
+					this.currentOffset=-this.setting.width;
+					this.carouselList.css("left",this.currentOffset);
 				}
-				else if(direction=="prev"){
-					// 如果是第一张
-					if(this.carouselList.css("left")=="0px"){
-						this.carouselList.css("left",-this.setting.width*(this.carouselItems.length-2)+"px");
-					}
 
-					// 如果是最后一张
-					else if(this.carouselList.css("left")==-this.setting.width*(this.carouselItems.length-1)+"px"){
-						this.carouselList.css("left",-this.setting.width);
-					};
-					this.carouselList.animate({left:-parseInt(this.carouselList.css("left").substring(1,this.carouselList.css("left").length-2))+this.setting.width+"px"},this.setting.speed,function(){
-						self.isCarousel=true;
-					});
+				// 如果是第一张
+				if(this.currentOffset==0){
+					this.currentOffset=-this.setting.width*(this.carouselItems.length-2);
+					this.carouselList.css("left",this.currentOffset);
 				}
+
+				this.currentOffset-=this.setting.width;
+
+				this.carouselList.animate({left:this.currentOffset+"px"},this.setting.speed);
+			}
+			else if(direction=="prev"){
+				// 如果是第一张
+				if(this.currentOffset==0){
+					this.currentOffset=-this.setting.width*(this.carouselItems.length-2);
+					this.carouselList.css("left",this.currentOffset+"px");
+				}
+
+				// 如果是最后一张
+				if (this.currentOffset==-this.setting.width*(this.carouselItems.length-1)) {
+					this.currentOffset=-this.setting.width;
+					this.carouselList.css("left",this.currentOffset);
+				}
+
+				this.currentOffset+=this.setting.width;
+
+				this.carouselList.animate({left:this.currentOffset+"px"},this.setting.speed);
 			}
 		},
 
