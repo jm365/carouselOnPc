@@ -1,6 +1,8 @@
 /**
- * @file 项目通用轮播插件
- * @author YaXiong Wu(270279036@qq.com)
+ * 项目通用轮播插件
+ * author: YaXiong Wu(270279036@qq.com)
+ * Version: 1.0.0
+ * Licensed under the MIT license
  */
 ;(function($){
 	function carousel(obj){
